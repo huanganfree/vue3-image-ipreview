@@ -3,10 +3,21 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "./dist/vue3-image-ipreview.js",
+  "files": ["dist"],
+  "keywords": [
+    "image",
+    "photo",
+    "photo-preview",
+    "preview",
+    "图片预览"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:lib": "vite build",
+    "link": "pnpm link --global"
   },
   "dependencies": {
     "vue": "^3.3.4"
