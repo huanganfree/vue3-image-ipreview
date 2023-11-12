@@ -4,14 +4,14 @@
     <transition name="slide-fade" appear>
       <div v-if="isShowImg" class="ha-image-preview_wrapper">
         <div class="ha-image-preview_mask"></div>
-        <Preview @close="handleClosePreview" @switch-image="handleSwitch" :currentImg="this.previewSrcList[this.imgeIndex]" />
+        <preview-image @close="handleClosePreview" @switch-image="handleSwitch" :currentImg="this.previewSrcList[this.imgeIndex]" />
       </div>
     </transition>
   </div>
 </template>
 
 <script>
-import Preview from './preview.vue';
+import PreviewImage from './previewImage.vue';
 export default {
   name: 'image-ipreview',
   // 避免传入多个prop
@@ -19,6 +19,9 @@ export default {
     return {
       childProp: this
     };
+  },
+  components: {
+    PreviewImage
   },
   props: {
     url: {
@@ -42,6 +45,10 @@ export default {
       type: Array,
       default: () => [{}],
       required: true
+    },
+    isTransition: {
+      type: Boolean,
+      default: false // 是否开启过渡动画
     }
   },
   data() {
@@ -49,9 +56,6 @@ export default {
       isShowImg: false,
       imgeIndex: this.previewSrcList.findIndex(item => item.url === this.url)
     };
-  },
-  components: {
-    Preview
   },
   methods: {
     handleShowPreview() {

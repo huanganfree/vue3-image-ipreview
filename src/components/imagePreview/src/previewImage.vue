@@ -22,7 +22,7 @@ import { addEvent, removeEvent } from '@/utils/dom-event.js';
 import { throttle } from '@/utils/debounce-throttle.js';
 import ToolBar from './toolBar.vue';
 export default {
-  name: 'preview',
+  name: 'preview-image',
   components: {
     ToolBar
   },
@@ -61,7 +61,8 @@ export default {
         transform: `scale(${this.imgSize}) rotate(${this.degree}deg)`,
         height: this.heightValue,
         marginLeft: this.marginLeft + 'px',
-        marginTop: this.marginTop + 'px'
+        marginTop: this.marginTop + 'px',
+        transition: this.childProp.isTransition ? `transform 0.3s ease 0s` : 'none'
       };
     }
   },
@@ -184,7 +185,7 @@ export default {
   }
 
   img {
-    transition: transform 0.3s ease 0s;
+    
     cursor: move;
   }
 
