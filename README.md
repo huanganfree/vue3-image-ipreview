@@ -14,10 +14,11 @@ A image preview plugin based on Vue3 🎉
       3.支持鼠标拖动预览图查看
       4.支持缩放，旋转，原图查看.
       5.自带节流机制，兼顾性能
-### 安装
+### 使用npm安装
 ```javascript
 npm install vue3-image-ipreview 
 ```
+
 ### 用法
 ```typescript
 import ImageIpreview from 'vue3-image-ipreview'
@@ -55,7 +56,7 @@ export default {
         },
         {
           url: 'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
-          // degree: 90
+          // degree: 90 省略默认值为0
         },
         {
           url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
@@ -72,7 +73,8 @@ export default {
 
 |       属性名       |  类型   |     描述      | 是否必填 | 默认值 |
 | :----------------: | :-----: | :-----------: | :----: | ------ |
-|        url         | |   图片地址    | 是 |        |
+|        url         | string |   图片地址    | 是 |        |
+|        degree         | number |   图片旋转角度    | 否 |   0     |
 | closeOnPressEscape | boolean | esc键关闭预览  |  -     |  true  |
 |   isShowToolBar    | boolean |  是否展示工具栏 |  -     |  true  |
 |   isMouseWheel    | boolean |  是否开启鼠标滚轮缩放   |  -  |  false  |
@@ -84,6 +86,6 @@ export default {
 |       属性名       |  类型   |     描述      | 是否必填 | 默认值 |
 | :----------------: | :-----: | :-----------: | :----: | ------ |
 |   url             | string   |  图片地址         |  true     |  -  |
-| degree             | number  | 初始旋转角度       |  true   |     0     |
+| degree             | number  | 初始旋转角度       |  false   |     0     |
 
 
