@@ -16,6 +16,8 @@ defineEmits(['zoom', 'scale-to-onePercent', 'original-size', 'spin'])
 
 </script>
 <style lang='less' scoped>
+@import '../../../style/icon.css';
+
 ul,li{
     list-style: none;
     margin: 0;

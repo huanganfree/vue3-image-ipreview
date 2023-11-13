@@ -1,10 +1,10 @@
 <template>
   <div class="ha-image-preview">
-    <img :src="url" alt="" @click.stop="handleShowPreview" />
+    <img :src="url" @click.stop="handleShowPreview" :style="imgStyle"/>
     <transition name="slide-fade" appear>
       <div v-if="isShowImg" class="ha-image-preview_wrapper">
         <div class="ha-image-preview_mask"></div>
-        <preview-image @close="handleClosePreview" @switch-image="handleSwitch" :currentImg="this.previewSrcList[this.imgeIndex]" />
+        <preview-image @close="handleClosePreview" @switch-image="handleSwitch" :currentImg="previewSrcList[imgeIndex]" />
       </div>
     </transition>
   </div>
@@ -29,6 +29,10 @@ export default {
       default: '',
       required: true
     },
+    degree: {
+      type: Number,
+      default: 0
+    },
     closeOnPressEscape: {
       type: Boolean,
       default: true
@@ -49,6 +53,13 @@ export default {
     isTransition: {
       type: Boolean,
       default: false // 是否开启过渡动画
+    }
+  },
+  computed: {
+    imgStyle() {
+      return {
+        transform: `rotate(${this.degree}deg)`
+      };
     }
   },
   data() {
@@ -82,7 +93,6 @@ export default {
 </script>
 
 <style lang='less' scoped>
-@import "../../../style/icon.css";
 
 .ha-image-preview {
   .slide-fade-enter-active {

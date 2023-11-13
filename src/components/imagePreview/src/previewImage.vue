@@ -48,7 +48,8 @@ export default {
   },
   watch: {
     'currentImg.degree': {
-      handler() {
+      handler(val) {
+        console.log('currentImg.degree==', val);
         this.degree = this.currentImg.degree || 0
       },
       immediate: true
@@ -58,7 +59,7 @@ export default {
     previewImageStyle() {
       // 计算属性：一般用于style，class的绑定
       return {
-        transform: `scale(${this.imgSize}) rotate(${this.degree}deg)`,
+        transform: `rotate(${this.degree}deg) scale(${this.imgSize})`,
         height: this.heightValue,
         marginLeft: this.marginLeft + 'px',
         marginTop: this.marginTop + 'px',
