@@ -1,11 +1,13 @@
 {
   "name": "vue3-image-ipreview",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "./dist/vue3-image-ipreview.js",
   "types": "./dist/index.d.ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "image",
     "photo",
