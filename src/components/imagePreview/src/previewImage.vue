@@ -43,7 +43,8 @@ export default {
       degree: 0, // 图片初始角度
       heightValue: '100%',
       marginLeft: 0,
-      marginTop: 0
+      marginTop: 0,
+      closeOnClickModal: false // 是否可以通过点击蒙层关闭
     };
   },
   watch: {
@@ -121,7 +122,7 @@ export default {
     handlePreviewViewerMouseUp(e) {
       const flag1 = this.PreviewViewerMouseDown.target.classList.contains('ha-image-preview_viewer');
       const flag2 = e.target.classList.contains('ha-image-preview_viewer');
-      if (flag1 && flag2) { // 判断鼠标按下，和弹起两个时刻是否作用在同一个目标元素上
+      if (flag1 && flag2 && this.closeOnClickModal) { // 判断鼠标按下，和弹起两个时刻是否作用在同一个目标元素上
         this.$emit('close');
       }
       this.$refs.preview_viewer.onmousemove = null;
@@ -153,6 +154,7 @@ export default {
 </script>
 
 <style scoped lang="less">
+@import '../../../style/icon.css';
 .ha-image-preview_content {
   position: absolute;
   z-index: 2;
