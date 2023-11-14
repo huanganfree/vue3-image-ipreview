@@ -15,6 +15,11 @@
     "preview",
     "图片预览"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huanganfree/vue3-image-ipreview"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -23,7 +28,8 @@
     "link": "pnpm link --global"
   },
   "dependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue3-image-ipreview": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
