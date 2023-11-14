@@ -25,7 +25,8 @@
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "build:lib": "vite build",
-    "link": "pnpm link --global"
+    "link:pnpm": "pnpm link --global",
+    "link:npm": "npm link"
   },
   "dependencies": {
     "vue": "^3.3.4",
