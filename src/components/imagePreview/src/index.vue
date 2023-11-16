@@ -1,18 +1,21 @@
 <template>
   <div class="ha-image-preview">
-    <img :src="url" @click.stop="handleShowPreview" :style="imgStyle"/>
+    <img :src="url" @click.stop="handleShowPreview" :style="imgStyle" />
     <transition name="slide-fade" appear>
       <div v-if="isShowImg" class="ha-image-preview_wrapper">
         <div class="ha-image-preview_mask"></div>
-        <preview-image @close="handleClosePreview" @switch-image="handleSwitch" :currentImg="previewSrcList[imgeIndex]" />
+        <preview-image @close="handleClosePreview" @switch-image="handleSwitch" :currentImg="(previewSrcList[imgeIndex] as object)" />
       </div>
     </transition>
   </div>
 </template>
 
-<script>
-import PreviewImage from './previewImage.vue';
-export default {
+<script lang="ts">
+import { defineComponent, type PropType } from 'vue';
+import PreviewImage from './previewImage.vue'; 
+import { type PreviewSrcListType } from "./index";
+
+export default defineComponent({
   name: 'image-ipreview',
   // 避免传入多个prop
   provide() {
@@ -47,7 +50,7 @@ export default {
     },
     previewSrcList: {
       type: Array,
-      default: () => [{}],
+      default: Function as PropType<(id: number) => PreviewSrcListType>,
       required: true
     },
     isTransition: {
@@ -65,7 +68,7 @@ export default {
   data() {
     return {
       isShowImg: false,
-      imgeIndex: this.previewSrcList.findIndex(item => item.url === this.url)
+      imgeIndex: this.previewSrcList.findIndex((item) => (item as { url: any }).url === this.url)
     };
   },
   methods: {
@@ -79,7 +82,7 @@ export default {
       const bodyDOM = document.getElementsByTagName('body')[0];
       bodyDOM.style.overflow = 'visible';
     },
-    handleSwitch(data) {
+    handleSwitch(data: number) {
       this.imgeIndex = this.imgeIndex + data;
       if (this.imgeIndex < 0) {
         this.imgeIndex = this.previewSrcList.length - 1;
@@ -89,23 +92,25 @@ export default {
       }
     }
   }
-};
+});
 </script>
 
 <style lang='less' scoped>
-
 .ha-image-preview {
   .slide-fade-enter-active {
     transition: all 0.5s ease;
   }
+
   .slide-fade-leave-active {
     transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
   }
-  .slide-fade-enter-from{
+
+  .slide-fade-enter-from {
     transform: translateX(-10px);
     opacity: 0;
   }
-  .slide-fade-leave-to{
+
+  .slide-fade-leave-to {
     transform: translateX(15px);
     opacity: 0;
   }
@@ -114,6 +119,7 @@ export default {
     width: 100%;
     height: 100%;
   }
+
   .ha-image-preview_wrapper {
     position: fixed;
     height: 100vh;
@@ -121,6 +127,7 @@ export default {
     z-index: 2033;
     top: 0;
     left: 0;
+
     .ha-image-preview_mask {
       opacity: 0.5;
       background: #000;
@@ -130,6 +137,5 @@ export default {
       z-index: 1;
     }
   }
-}
-</style>
+}</style>
 

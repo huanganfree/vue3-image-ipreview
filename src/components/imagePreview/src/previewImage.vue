@@ -12,21 +12,24 @@
     </div>
     <div class="ha-image-preview_toolbar" v-if="childProp.isShowToolBar">
       <tool-bar @zoom="handleZoom" @spin="handleSpin" @scale-to-onePercent="handleRecoverScale"
-        @original-size="handleOriginalSize" />
+        @original-size="handleOriginalSize" /> 
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent, type InjectionKey } from 'vue';
 import { addEvent, removeEvent } from '@/utils/dom-event.js';
-import { throttle } from '@/utils/debounce-throttle.js';
+import { throttle } from '@/utils/debounce-throttle.js'; 
 import ToolBar from './toolBar.vue';
-export default {
+
+const childProp: InjectionKey<'12'> = Symbol()
+export default defineComponent({
   name: 'preview-image',
   components: {
     ToolBar
   },
-  inject: ['childProp'],
+  inject: [childProp],
   props: {
     currentImg: {
       type: Object,
@@ -150,7 +153,7 @@ export default {
       this.$emit('switch-image', data);
     }
   }
-};
+});
 </script>
 
 <style scoped lang="less">
