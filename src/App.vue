@@ -6,12 +6,12 @@
 </template>
 
 <script lang="ts">
-import ImageIpreview from './components/imagePreview/src/index.vue'
+// import ImageIpreview from './components/imagePreview/src/index.vue'
 
 export default {
   name: 'App',
   components: {
-    ImageIpreview
+    // ImageIpreview
   },
   data() {
     return {
