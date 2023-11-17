@@ -1,7 +1,7 @@
 {
   "name": "vue3-image-ipreview",
   "private": false,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "type": "module",
   "main": "./dist/vue3-image-ipreview.js",
   "types": "./dist/index.d.ts",
@@ -29,8 +29,7 @@
     "link:npm": "npm link"
   },
   "dependencies": {
-    "vue": "^3.3.4",
-    "vue3-image-ipreview": "^1.0.1"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "@types/node": "^20.9.0",

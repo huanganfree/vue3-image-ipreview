@@ -7,4 +7,5 @@ import 'vue3-image-ipreview/dist/style.css'
 const app = createApp(App)
 
 app.use(ImageIpreview).mount('#app')
+// app.mount('#app')
 
