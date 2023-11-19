@@ -1,11 +1,10 @@
 # vue3-image-ipreview
-A image preview plugin based on Vue3 🎉
-
-支持typescript
+A image preview plugin based on Vue3. 支持typescript🎉
 
 ## 介绍
 一款基于vue3的桌面端轻量图片预览插件。支持typescript
-1.欢迎大家使用~，觉得还行的，恳请给个star，谢谢！
+
+1.欢迎大家使用~，觉得还行的，动动小手点个star
 2.如有问题，请提issue，我会持续迭代。
 
 ### 特性

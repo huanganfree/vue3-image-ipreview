@@ -74,7 +74,6 @@ export default defineComponent({
   mounted() {
     // 挂载后，绑定
     addEvent(window, 'keyup', this.handleEscape);
-    // 鼠标滚动：+ 向前滚动，- 向后滚动
     this.throttleMousewheel = throttle(this.handleMousewheel, 60);
     addEvent(this.$refs.image, 'mousewheel', this.throttleMousewheel);
   },
@@ -87,7 +86,8 @@ export default defineComponent({
     handleMousewheel(e) {
       if (!this.childProp.isMouseWheel) return;
       const delta = e.wheelDelta;
-      const degree = delta < 0 ? 0.21 : -0.21;
+      // 鼠标滚动：+ 向前滚动，- 向后滚动
+      const degree = delta < 0 ? -0.21 : 0.21;
       this.handleZoom(degree);
     },
     // esc键退出图片预览
