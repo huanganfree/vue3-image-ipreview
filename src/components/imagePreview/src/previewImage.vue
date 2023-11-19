@@ -17,22 +17,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, type InjectionKey } from 'vue';
+<script>
+import { defineComponent } from 'vue';
 import { addEvent, removeEvent } from '@/utils/dom-event.js';
 import { throttle } from '@/utils/debounce-throttle.js'; 
 import ToolBar from './toolBar.vue';
 
-const childProp: InjectionKey<'12'> = Symbol()
 export default defineComponent({
   name: 'preview-image',
   components: {
     ToolBar
   },
-  inject: [childProp],
+  inject: ['childProp'],
   props: {
     currentImg: {
-      type: Object,
+      type: Object, 
       default: () => ({
         url: '',
         degree: 0

@@ -21,7 +21,7 @@ export default defineComponent({
   provide() {
     return {
       childProp: this
-    };
+    }; 
   },
   components: {
     PreviewImage
