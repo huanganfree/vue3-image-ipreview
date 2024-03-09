@@ -94,8 +94,8 @@ export default {
 
 <style lang='less' scoped>
 
-.ha-image-preview {
-  .slide-fade-enter-active {
+.ha-image-preview { 
+  .slide-fade-enter-active      {
     transition: all 0.5s ease;
   }
   .slide-fade-leave-active {
