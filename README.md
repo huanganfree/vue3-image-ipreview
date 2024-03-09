@@ -88,3 +88,6 @@ export default {
 | degree             | number  | 初始旋转角度       |  false   |     0     |
 
 
+### 示例效果
+![Image text](https://github.com/huanganfree/vue3-image-ipreview/blob/main/exampleAssets/ex1.png)
+![Gif text](https://github.com/huanganfree/vue3-image-ipreview/blob/main/exampleAssets/image.gif)
