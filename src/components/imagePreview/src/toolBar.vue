@@ -14,7 +14,14 @@
 
 defineEmits(['zoom', 'scale-to-onePercent', 'original-size', 'spin'])
 
+defineProps({
+  a: {
+    default: 'a'
+  }
+})
+
 </script>
+
 <style lang='less' scoped>
 @import '../../../style/icon.css';
 
@@ -26,14 +33,15 @@ ul,li{
 ul{
     padding-left: 12px;
     display: flex;
-    background-color: rgba(96, 98, 102, .66);
+    background-color: rgb(96 98 102 / 66%);
     color: #ddd;
     padding: 10px 30px;
     border-radius: 20px;
 }
 
-li{
-    font-size: 23px;
+
+li   { 
+       font-size: 23px;
     margin:0 10px;
     cursor: pointer;
 }
